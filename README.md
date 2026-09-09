@@ -4,6 +4,8 @@ Batch image converter, resizer, compressor, watermaker and cropper — **extract
 
 **Conversion to any format costs zero tokens and works fully offline.** There is no server, no AI, no API key, no analytics and no network call anywhere in this tool — every conversion happens in your browser via the native `<canvas>` encoder. Your images never leave your device.
 
+This is an intentional design decision. We co-work with AI every day — and co-working means the AI amplifies the work, not that the work stops without it. Routine, deterministic jobs like format conversion, resizing and watermarking should never consume tokens, wait on a model, or depend on a connection. See [Token economics & offline-first values](#token-economics--offline-first-values) below.
+
 ## Quick start (no install, offline)
 
 Open **`dist/index.html`** in any modern browser (Chrome, Edge, Firefox, Safari). That single file contains the entire app — JavaScript, styles, icons and the ZIP library — inlined. Double-click it, or drop it on a USB drive / internal server; internet is never required.
@@ -27,6 +29,17 @@ Open **`dist/index.html`** in any modern browser (Chrome, Edge, Firefox, Safari)
 - No uploads — files are read and processed entirely in memory/on-device
 - No telemetry, no fonts/CDNs fetched at runtime, no external requests of any kind
 - Built with a **single-file build** (`vite-plugin-singlefile`) so there is literally no second file to fetch
+
+## Token economics & offline-first values
+
+Every conversion this tool runs costs **zero tokens** — a batch of 200 photos costs exactly the same as one:
+
+- **Deterministic local code, not an AI round-trip.** Each export is a plain browser `<canvas>` encode. There is no LLM invocation, no cloud API, no agent turn and no per-image metering anywhere in the pipeline.
+- **No keys, no limits, no connectivity required.** The tool carries no API keys and makes no network calls, so there are no rate limits to hit and no services to go down. It keeps working with the internet fully off — on a plane, in a venue with dead Wi-Fi, or during an AI-service outage.
+- **Tokens go where judgment is needed.** Every image you convert with this tool is one fewer image that had to round-trip through an AI agent. The budget is spent on work that actually needs a thinking partner — research, drafting, analysis — instead of mechanical busywork.
+- **Ready, not reliant.** AI is a collaborator, not a dependency. Workflows built on deterministic tooling keep the newsroom fast, the costs predictable, and the operation running even when the AI layer is unavailable.
+
+The principle this tool follows: **use AI where it adds judgment; use deterministic tooling where it adds none.**
 
 ## Development
 
