@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* ============================================================
+     Media Hub Design Tokens — daily.dev-inspired monochrome
+     ------------------------------------------------------------
+     Every color in the app flows from the tokens below.
+
+     Dark (default) — near-black, blue-tinted, monochrome.
+     Accent is the ONLY saturated color; use it sparingly.
+     ============================================================ */
+  --color-jam-bg: #0E1217;          /* page background            */
+  --color-jam-surface: #1E2229;     /* panels, sidebar, header    */
+  --color-jam-card: #161B21;        /* cards                      */
+  --color-jam-hover: #232A33;       /* hover / active surfaces    */
+  --color-jam-border: #262D36;      /* hairline borders           */
+  --color-jam-text: #CDD4E4;        /* primary text               */
+  --color-jam-strong: #F4F6FA;      /* headings / emphasis        */
+  --color-jam-muted: #A8B3CE;       /* secondary text             */
+  --color-jam-faint: #6F7A87;       /* tertiary / placeholders    */
+  --color-jam-accent: #B45DFF;      /* the one color — use sparingly */
+  --color-jam-accent-strong: #9240D9; /* accent hover / dark      */
+  --color-jam-ok: #10B981;          /* status: live / success       */
+  --color-jam-warning: #F59E0B;     /* status: pending / due soon   */
+  --color-jam-danger: #EF4444;      /* status: blocked / overdue    */
+}
+
+/* Light mode — same tokens, swapped values. Everything else just works. */
+@layer base {
+  .light {
+    --color-jam-bg: #F7F8FA;
+    --color-jam-surface: #FFFFFF;
+    --color-jam-card: #FFFFFF;
+    --color-jam-hover: #EFF1F4;
+    --color-jam-border: #D9DEE5;
+    --color-jam-text: #1F2933;
+    --color-jam-strong: #111827;
+    --color-jam-muted: #667085;
+    --color-jam-faint: #667085;
+    --color-jam-accent: #6D28D9;
+    --color-jam-accent-strong: #5B21B6;
+    --color-jam-ok: #059669;
+    --color-jam-warning: #B45309;
+    --color-jam-danger: #B91C1C;
+  }
+
+  /* Slate mode — cool blue-gray monochrome */
+  .slate {
+    --color-jam-bg: #0f172a;
+    --color-jam-surface: #1e293b;
+    --color-jam-card: #1e293b;
+    --color-jam-hover: #334155;
+    --color-jam-border: #334155;
+    --color-jam-text: #f8fafc;
+    --color-jam-strong: #ffffff;
+    --color-jam-muted: #94a3b8;
+    --color-jam-faint: #7C8BA5;
+    --color-jam-accent: #A78BFA;
+    --color-jam-accent-strong: #7A51D8;
+    --color-jam-ok: #10b981;
+    --color-jam-warning: #f59e0b;
+    --color-jam-danger: #ef4444;
+  }
+
+  html {
+    font-size: 16.2px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 16.8px;
+    }
+  }
+
+  html, body, #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  body {
+    background-color: var(--color-jam-bg);
+    color: var(--color-jam-text);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Entry animations used by the tool UI (self-contained, offline-safe) */
+  @keyframes imtool-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes imtool-zoom-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes imtool-slide-in-top {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-in {
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+  }
+  .fade-in {
+    animation: imtool-fade-in 200ms ease-out both;
+  }
+  .zoom-in {
+    animation: imtool-zoom-in 150ms ease-out both;
+  }
+  .slide-in-from-top-1 {
+    animation: imtool-slide-in-top 150ms ease-out both;
+  }
+}
