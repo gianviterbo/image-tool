@@ -12,6 +12,12 @@ Open **`dist/index.html`** in any modern browser (Chrome, Edge, Firefox, Safari)
 
 > `dist/index.html` is a committed build artifact, so you can grab it straight from the repo without installing anything.
 
+## In action
+
+![Media Hub Image Tool — ten video-timeline frames batch-converted to WebP (720p HD, quality 63%) fully in the browser: 943.4 KB → 34.1 KB per frame (−96%), watermark applied, ready for CMS export](docs/image-tool-in-action.webp)
+
+Batch conversion above: 10 frames in, 10 WebP files out — every byte processed locally, zero tokens spent.
+
 ## Features
 
 - **Batch import** — drag-and-drop or browse multiple JPG / PNG / WebP files
