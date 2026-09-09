@@ -1066,6 +1066,16 @@ export default function ImageTool() {
 
       </div>
 
+      {/* Values footer — the tool is deliberately token-free & offline */}
+      <div className="pt-5 mt-1 flex flex-col items-center gap-1.5 text-center select-none border-t border-jam-border/70">
+        <p className="text-[9px] font-mono uppercase tracking-[0.18em] text-jam-muted leading-relaxed">
+          <span className="text-jam-accent font-bold">READY, NOT RELIANT</span> — USE AI WHERE IT ADDS JUDGMENT, TOOLING WHERE IT ADDS NONE
+        </p>
+        <p className="text-[9px] font-mono text-jam-faint">
+          Every conversion runs 100% locally in this browser — zero tokens · zero uploads · works fully offline
+        </p>
+      </div>
+
       {/* Interactive 100% Client-Side Crop Modal */}
       {activeCropImage && (
         <CropModal
